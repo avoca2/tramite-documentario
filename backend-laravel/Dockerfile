@@ -15,6 +15,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copiar código
 COPY . .
 
+# Crear archivo .env desde .env.example
+RUN if [ -f .env.example ] && [ ! -f .env ]; then cp .env.example .env; fi
+
 # Instalar dependencias
 RUN composer install --no-dev --optimize-autoloader
 
