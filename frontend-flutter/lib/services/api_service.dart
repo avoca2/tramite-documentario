@@ -1,7 +1,8 @@
+import '../utils/constants.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:8000/api';
+  static const String baseUrl = ApiConstants.baseUrl;
   final Dio dio = Dio();
   String? _token;
 
