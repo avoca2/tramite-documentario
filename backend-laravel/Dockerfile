@@ -15,14 +15,17 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copiar código
 COPY . .
 
-# Crear archivo .env desde .env.example
-RUN if [ -f .env.example ] && [ ! -f .env ]; then cp .env.example .env; fi
+# Crear .env desde .env.example
+RUN cp .env.example .env
 
 # Instalar dependencias
 RUN composer install --no-dev --optimize-autoloader
 
 # Generar key
 RUN php artisan key:generate
+
+# Dar permisos
+RUN chmod -R 755 storage bootstrap/cache
 
 # Exponer puerto
 EXPOSE 10000
