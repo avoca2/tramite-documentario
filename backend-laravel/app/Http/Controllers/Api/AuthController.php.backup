@@ -36,7 +36,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function register(RegisterRequest $request)
+    public function register(Request $request)
     {
         // Solo validar los campos que necesitamos
         $request->validate([
