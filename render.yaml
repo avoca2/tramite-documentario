@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: tramite-backend
+    runtime: image
+    repo: https://github.com/avoca2/tramite-documentario
+    plan: free
+    rootDir: backend-laravel
+    envVars:
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: tramite-db.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_DATABASE
+        value: iestp_tramites
+      - key: DB_USERNAME
+        value: tramite_user
+      - key: DB_PASSWORD
+        sync: false
+
+databases:
+  - name: tramite-db
+    databaseName: iestp_tramites
+    user: tramite_user
+    plan: free
