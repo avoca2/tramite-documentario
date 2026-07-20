@@ -15,14 +15,18 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copiar código (sin .env)
 COPY . /app
 
+# Crear directorios necesarios y dar permisos
+RUN mkdir -p bootstrap/cache storage/framework/views storage/framework/cache storage/framework/sessions && \
+    chmod -R 775 bootstrap/cache storage
+
 # Instalar dependencias
 RUN composer install --no-dev --optimize-autoloader
 
-# Dar permisos
-RUN chmod -R 755 storage bootstrap/cache
+# Dar permisos nuevamente
+RUN chmod -R 775 bootstrap/cache storage
 
 # Exponer puerto
 EXPOSE 10000
 
-# Iniciar servidor (usando variables de entorno)
+# Iniciar servidor
 CMD php artisan serve --host=0.0.0.0 --port=10000
