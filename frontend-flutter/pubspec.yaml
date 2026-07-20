@@ -1,0 +1,49 @@
+name: tramite_documentario
+description: Sistema de Tramite Documentario IESTP Jorge Desmaison Seminario
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI y utilidades
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.1
+  
+  # Networking
+  dio: ^5.4.0
+  
+  # Almacenamiento local
+  shared_preferences: ^2.2.2
+  
+  # Fechas y formato
+  intl: ^0.18.1
+  
+  # Gráficos
+  fl_chart: ^1.2.0
+  
+  # Efectos de carga shimmer
+  shimmer: ^3.0.0
+  
+  # Badges/notificaciones
+  badges: ^3.1.2
+  
+  # Toast messages
+  fluttertoast: ^8.2.5
+  
+  # Snackbars con diseño mejorado - VERSIÓN COMPATIBLE
+  awesome_snackbar_content: ^0.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
